@@ -53,4 +53,10 @@ public class MasrafController {
         masrafService.deleteMasraf(id);
         return ResponseEntity.ok(new ApiResponse<>(200, null, null));
     }
+
+    @GetMapping("/toplam/{kisiId}")
+    public ResponseEntity<ApiResponse<Double>> getTotalMasrafByKisiId(@PathVariable Long kisiId) {
+        Double totalMasraf = masrafService.getTotalMasrafByKisiId(kisiId);
+        return ResponseEntity.ok(new ApiResponse<>(200, totalMasraf, null));
+    }
 }

@@ -65,4 +65,9 @@ public class MasrafServiceImpl implements MasrafService {
             masrafRepository.deleteById(id);
         }
     }
+
+    @Override
+    public Double getTotalMasrafByKisiId(Long kisiId) {
+        return masrafRepository.findTotalMasrafByKisiId(kisiId);
+    }
 }

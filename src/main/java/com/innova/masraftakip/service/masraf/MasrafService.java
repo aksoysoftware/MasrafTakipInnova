@@ -19,4 +19,6 @@ public interface MasrafService {
     MasrafDto getMasrafById(Long id);
 
     void deleteMasraf(Long id);
+
+    Double getTotalMasrafByKisiId(Long kisiId);
 }
