@@ -25,18 +25,18 @@ public class AggregationService {
     }
 
     @Scheduled(cron = "0 0 0 * * ?") // Günlük
-    public void aggregateDailyMasraf() {
+    public void aggregateGunlukMasraf() {
         aggregateMasraf("günlük");
     }
 
     @Scheduled(cron = "0 0 0 * * MON") // Haftalık
-    public void aggregateWeeklyMasraf() {
-        aggregateMasraf("haftalık");
+    public void aggregateHaftalikMasraf() {
+        aggregateMasraf("haftalik");
     }
 
     @Scheduled(cron = "0 0 0 1 * ?") // Aylık
-    public void aggregateMonthlyMasraf() {
-        aggregateMasraf("aylık");
+    public void aggregateAylikMasraf() {
+        aggregateMasraf("aylik");
     }
 
     private void aggregateMasraf(String periyot) {
