@@ -9,17 +9,17 @@ import lombok.*;
 @Builder
 @ToString
 @Entity
-@Table(name="masraf")
+@Table(name="MASRAF")
 public class Masraf extends BaseEntity  {
 
 
-    @Column(name = "masraf_adi",columnDefinition = "varchar(255)")
-    private String masraf_adi;
+    @Column(name = "MASRAF_ADI",columnDefinition = "varchar(255)")
+    private String masrafAdi;
 
-    @Column(name = "masraf_miktari",columnDefinition = "integer")
-    private int masraf_miktari;
+    @Column(name = "MASRAF_MIKTARI", columnDefinition = "double precision")
+    private Double masrafMiktari;
 
     @ManyToOne
-    @JoinColumn(name="kisi_id", nullable=false)
+    @JoinColumn(name="KISI_ID", nullable=false)
     private Kisi kisi;
 }

@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/kisiler")
+@RequestMapping("/api/kisi")
 public class KisiController {
 
     private final KisiService kisiService;
