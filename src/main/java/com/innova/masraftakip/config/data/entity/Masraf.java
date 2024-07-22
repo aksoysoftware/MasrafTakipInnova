@@ -1,4 +1,4 @@
-package com.innova.masraftakip.data.entity;
+package com.innova.masraftakip.config.data.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

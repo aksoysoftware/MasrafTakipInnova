@@ -1,6 +1,5 @@
 package com.innova.masraftakip.service.kisi;
 
-import com.innova.masraftakip.data.entity.Kisi;
 import com.innova.masraftakip.dto.KisiDto;
 
 import java.util.List;

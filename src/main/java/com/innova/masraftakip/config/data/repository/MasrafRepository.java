@@ -1,6 +1,6 @@
-package com.innova.masraftakip.data.repository;
+package com.innova.masraftakip.config.data.repository;
 
-import com.innova.masraftakip.data.entity.Masraf;
+import com.innova.masraftakip.config.data.entity.Masraf;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

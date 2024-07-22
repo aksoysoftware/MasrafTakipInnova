@@ -1,9 +1,9 @@
 package com.innova.masraftakip.service.masraf.impl;
 
-import com.innova.masraftakip.data.entity.Kisi;
-import com.innova.masraftakip.data.entity.Masraf;
-import com.innova.masraftakip.data.repository.KisiRepository;
-import com.innova.masraftakip.data.repository.MasrafRepository;
+import com.innova.masraftakip.config.data.entity.Kisi;
+import com.innova.masraftakip.config.data.entity.Masraf;
+import com.innova.masraftakip.config.data.repository.KisiRepository;
+import com.innova.masraftakip.config.data.repository.MasrafRepository;
 import com.innova.masraftakip.dto.MasrafDto;
 import com.innova.masraftakip.mapper.MasrafMapper;
 import com.innova.masraftakip.service.masraf.MasrafService;
@@ -32,7 +32,7 @@ public class MasrafServiceImpl implements MasrafService {
 
     @Override
     public MasrafDto createMasraf(MasrafDto masrafDto) {
-        Kisi kisi = kisiRepository.findById(Math.toIntExact(masrafDto.getKisiId())).orElseThrow(() -> new RuntimeException("Kisi not found"));
+        Kisi kisi = kisiRepository.findById(masrafDto.getKisiId()).orElseThrow(() -> new RuntimeException("Kisi not found"));
         Masraf masraf = masrafMapper.toEntity(masrafDto);
         masraf.setKisi(kisi);
         Masraf savedMasraf = masrafRepository.save(masraf);
@@ -44,7 +44,7 @@ public class MasrafServiceImpl implements MasrafService {
         if (!masrafRepository.existsById(id)) {
             return null;
         }
-        Kisi kisi = kisiRepository.findById(Math.toIntExact(masrafDto.getKisiId())).orElseThrow(() -> new RuntimeException("Kisi not found"));
+        Kisi kisi = kisiRepository.findById(masrafDto.getKisiId()).orElseThrow(() -> new RuntimeException("Kisi not found"));
         Masraf masraf = masrafMapper.toEntity(masrafDto);
         masraf.setId(id);
         masraf.setKisi(kisi);
@@ -64,6 +64,7 @@ public class MasrafServiceImpl implements MasrafService {
         if (masrafRepository.existsById(id)) {
             masrafRepository.deleteById(id);
         }
+
     }
 
     @Override

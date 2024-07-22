@@ -1,7 +1,7 @@
 package com.innova.masraftakip.service.kisi.impl;
 
-import com.innova.masraftakip.data.entity.Kisi;
-import com.innova.masraftakip.data.repository.KisiRepository;
+import com.innova.masraftakip.config.data.entity.Kisi;
+import com.innova.masraftakip.config.data.repository.KisiRepository;
 import com.innova.masraftakip.dto.KisiDto;
 import com.innova.masraftakip.mapper.KisiMapper;
 import com.innova.masraftakip.service.kisi.KisiService;
@@ -28,7 +28,7 @@ public class KisiServiceImpl implements KisiService {
 
     @Override
     public KisiDto getKisiById(Long id) {
-        return kisiRepository.findById(Math.toIntExact(id))
+        return kisiRepository.findById(id)
                 .map(kisiMapper::toDto)
                 .orElse(null);
     }
@@ -42,7 +42,7 @@ public class KisiServiceImpl implements KisiService {
 
     @Override
     public KisiDto updateKisi(Long id, KisiDto kisiDto) {
-        if (!kisiRepository.existsById(Math.toIntExact(id))) {
+        if (!kisiRepository.existsById(id)) {
             return null;
         }
         Kisi kisi = kisiMapper.toEntity(kisiDto);
@@ -53,8 +53,8 @@ public class KisiServiceImpl implements KisiService {
 
     @Override
     public void deleteKisi(Long id) {
-        if (kisiRepository.existsById(Math.toIntExact(id))) {
-            kisiRepository.deleteById(Math.toIntExact(id));
+        if (kisiRepository.existsById(id)) {
+            kisiRepository.deleteById(id);
         }
     }
 }

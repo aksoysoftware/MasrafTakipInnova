@@ -1,4 +1,4 @@
-package com.innova.masraftakip.data.entity;
+package com.innova.masraftakip.config.data.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -11,12 +11,7 @@ import java.sql.Timestamp;
 @Builder
 @Entity
 @Table(name = "AGGREGATE_MASRAF")
-public class AggregateMasraf {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
+public class AggregateMasraf extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "KISI_ID", nullable = false)
     private Kisi kisi;
