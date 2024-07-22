@@ -14,7 +14,6 @@ public class MasrafMapper implements BaseMapper<Masraf, MasrafDto> {
         }
 
         MasrafDto masrafDto = new MasrafDto();
-        masrafDto.setId(entity.getId());
         masrafDto.setMasrafAdi(entity.getMasrafAdi());
         masrafDto.setMasrafMiktari(entity.getMasrafMiktari());
         masrafDto.setKisiId(entity.getKisi().getId());
@@ -29,7 +28,6 @@ public class MasrafMapper implements BaseMapper<Masraf, MasrafDto> {
         }
 
         Masraf masraf = new Masraf();
-        masraf.setId(dto.getId());
         masraf.setMasrafAdi(dto.getMasrafAdi());
         masraf.setMasrafMiktari(dto.getMasrafMiktari());
         //kisi set et

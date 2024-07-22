@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MasrafDto {
-    private Long id;
+
     private String masrafAdi;
     private Double masrafMiktari;
     private Long kisiId;
