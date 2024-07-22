@@ -1,6 +1,6 @@
 package com.innova.masraftakip.mapper;
 
-import com.innova.masraftakip.config.data.entity.Masraf;
+import com.innova.masraftakip.data.entity.Masraf;
 import com.innova.masraftakip.dto.MasrafDto;
 import org.springframework.stereotype.Component;
 

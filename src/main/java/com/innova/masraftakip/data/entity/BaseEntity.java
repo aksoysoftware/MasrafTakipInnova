@@ -1,4 +1,4 @@
-package com.innova.masraftakip.config.data.entity;
+package com.innova.masraftakip.data.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;

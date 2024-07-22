@@ -1,10 +1,10 @@
 package com.innova.masraftakip.service.background;
 
-import com.innova.masraftakip.config.data.entity.AggregateMasraf;
-import com.innova.masraftakip.config.data.entity.Kisi;
-import com.innova.masraftakip.config.data.repository.AggregateMasrafRepository;
-import com.innova.masraftakip.config.data.repository.KisiRepository;
-import com.innova.masraftakip.config.data.repository.MasrafRepository;
+import com.innova.masraftakip.data.entity.AggregateMasraf;
+import com.innova.masraftakip.data.entity.Kisi;
+import com.innova.masraftakip.data.repository.AggregateMasrafRepository;
+import com.innova.masraftakip.data.repository.KisiRepository;
+import com.innova.masraftakip.data.repository.MasrafRepository;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 

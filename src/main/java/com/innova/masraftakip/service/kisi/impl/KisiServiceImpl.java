@@ -1,10 +1,13 @@
 package com.innova.masraftakip.service.kisi.impl;
 
-import com.innova.masraftakip.config.data.entity.Kisi;
-import com.innova.masraftakip.config.data.repository.KisiRepository;
+import com.innova.masraftakip.data.entity.Kisi;
+import com.innova.masraftakip.data.repository.KisiRepository;
 import com.innova.masraftakip.dto.KisiDto;
+import com.innova.masraftakip.enums.Durum;
 import com.innova.masraftakip.mapper.KisiMapper;
 import com.innova.masraftakip.service.kisi.KisiService;
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,6 +36,7 @@ public class KisiServiceImpl implements KisiService {
                 .orElse(null);
     }
 
+    @Transactional
     @Override
     public KisiDto createKisi(KisiDto kisiDto) {
         Kisi kisi = kisiMapper.toEntity(kisiDto);
@@ -40,6 +44,7 @@ public class KisiServiceImpl implements KisiService {
         return kisiMapper.toDto(kisi);
     }
 
+    @Transactional
     @Override
     public KisiDto updateKisi(Long id, KisiDto kisiDto) {
         if (!kisiRepository.existsById(id)) {
@@ -51,10 +56,12 @@ public class KisiServiceImpl implements KisiService {
         return kisiMapper.toDto(kisi);
     }
 
+
     @Override
     public void deleteKisi(Long id) {
-        if (kisiRepository.existsById(id)) {
-            kisiRepository.deleteById(id);
-        }
+        Kisi kisi = kisiRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Kisi not found with id " + id));
+        kisi.setDurum(Durum.MANTIKSAL_SILINMIS);
+        kisiRepository.save(kisi);
     }
 }

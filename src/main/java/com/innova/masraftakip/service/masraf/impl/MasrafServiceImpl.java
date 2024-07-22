@@ -1,12 +1,13 @@
 package com.innova.masraftakip.service.masraf.impl;
 
-import com.innova.masraftakip.config.data.entity.Kisi;
-import com.innova.masraftakip.config.data.entity.Masraf;
-import com.innova.masraftakip.config.data.repository.KisiRepository;
-import com.innova.masraftakip.config.data.repository.MasrafRepository;
+import com.innova.masraftakip.data.entity.Kisi;
+import com.innova.masraftakip.data.entity.Masraf;
+import com.innova.masraftakip.data.repository.KisiRepository;
+import com.innova.masraftakip.data.repository.MasrafRepository;
 import com.innova.masraftakip.dto.MasrafDto;
 import com.innova.masraftakip.mapper.MasrafMapper;
 import com.innova.masraftakip.service.masraf.MasrafService;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,6 +31,7 @@ public class MasrafServiceImpl implements MasrafService {
         return masrafMapper.toDto(masrafList);
     }
 
+    @Transactional
     @Override
     public MasrafDto createMasraf(MasrafDto masrafDto) {
         Kisi kisi = kisiRepository.findById(masrafDto.getKisiId()).orElseThrow(() -> new RuntimeException("Kisi not found"));
@@ -38,7 +40,7 @@ public class MasrafServiceImpl implements MasrafService {
         Masraf savedMasraf = masrafRepository.save(masraf);
         return masrafMapper.toDto(savedMasraf);
     }
-
+    @Transactional
     @Override
     public MasrafDto updateMasraf(Long id, MasrafDto masrafDto) {
         if (!masrafRepository.existsById(id)) {

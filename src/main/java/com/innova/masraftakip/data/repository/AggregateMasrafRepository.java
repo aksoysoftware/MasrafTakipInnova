@@ -1,6 +1,6 @@
-package com.innova.masraftakip.config.data.repository;
+package com.innova.masraftakip.data.repository;
 
-import com.innova.masraftakip.config.data.entity.AggregateMasraf;
+import com.innova.masraftakip.data.entity.AggregateMasraf;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
